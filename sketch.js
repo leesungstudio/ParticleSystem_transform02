@@ -5,7 +5,7 @@ let x = 0;
 
 function setup() {
   createCanvas(720, 400);
-  gravity = createVector(0, 0.05);
+ // gravity = createVector(0, 0.05);
   
 }
 function draw() {
@@ -18,7 +18,7 @@ function draw() {
     s.addParticle();
     s.run();
      //s.add(wind);
-      s.add(turbulence);
+    //s.add(turbulence);
   }
 }
 function mouseClicked() {
