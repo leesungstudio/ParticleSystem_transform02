@@ -6,7 +6,7 @@ class ParticleSystem {
     addParticle() {
         if (frameCount % 3  == 0){ // 프레임 나누어서 
          
-            this.col = map (noise(frameCount),0,1,100,255);
+            this.col = map (noise(frameCount/10),0,1,0,255);
         this.particles.push(new Particle(this.origin,this.col));
         }
     }

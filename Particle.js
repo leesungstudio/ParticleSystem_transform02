@@ -4,7 +4,7 @@
 class Particle {
     constructor(position, col) {
         this.acceleration = createVector(0, 0);
-        this.velocity = createVector(random(-1, 1), random(-1, 0));
+        this.velocity = createVector(0,0);
         this.position = position;//.copy();
         this.lifespan = 255;
         this.colorspan = 150;
@@ -35,7 +35,7 @@ class Particle {
     display() {
         noStroke();
         
-        fill(this.colorspan ,  this.velocity.y * 3 , this.col  , this.lifespan);
+        fill(255-this.col ,  this.velocity.y * 3 , this.col  , this.lifespan);
        
         ellipse(this.position.x, this.position.y, this.size, this.size);
     }
