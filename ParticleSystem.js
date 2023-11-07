@@ -1,6 +1,6 @@
 class ParticleSystem {
     constructor(position) {
-        this.origin = position.copy();
+        this.origin = position;//.copy();
         this.particles = [];
     }
     addParticle() {
