@@ -4,7 +4,7 @@
 class Particle {
     constructor(position, col) {
         this.acceleration = createVector(0, 0);
-        this.velocity = createVector(0,0);
+        this.velocity = createVector(0, 0);
         this.position = position;//.copy();
         this.lifespan = 255;
         this.colorspan = 150;
@@ -15,7 +15,7 @@ class Particle {
         this.update();
         this.display();
     }
-    applyForce(aForce){
+    applyForce(aForce) {
         this.acceleration.add(aForce);
     }
 
@@ -23,21 +23,46 @@ class Particle {
     update() {
         this.velocity.add(this.acceleration);
         this.position.add(this.velocity);
-        this.lifespan -= 3  ; // 알파값 줄어짐
+        
+        this.bounceOffWalls();
+
+        this.lifespan -= 3; // 알파값 줄어짐
         this.colorspan += this.velocity.x;
         this.size += 2;
-       // this.col  = 100  + 10*map(noise( this.size  ),0,1,0,40);
-        print( this.col );
+        // this.col  = 100  + 10*map(noise( this.size  ),0,1,0,40);
+        print(this.col);
         this.acceleration = createVector(0, 0); //가속도 초기화
     }
 
     // Method to display
     display() {
         noStroke();
-        
-        fill(255-this.col ,  this.velocity.y * 3 , this.col  , this.lifespan);
-       
+
+        fill(255 - this.col, this.velocity.y * 3, this.col, this.lifespan);
+
         ellipse(this.position.x, this.position.y, this.size, this.size);
+    }
+    bounceOffWalls() {
+
+        if (this.position.x < 0) {
+            this.position.x = 0;
+            this.velocity.x *= -1;
+        }
+
+        if (this.position.x > width) {
+            this.position.x = width;
+            this.velocity.x *= -1;
+        }
+
+        if (this.position.y < 0) {
+            this.position.y = 0;
+            this.velocity.y *= -1;
+        }
+
+        if (this.position.y > height) {
+            this.position.y = height;
+            this.velocity.y *= -1;
+        }
     }
 
     // Is the particle still useful?

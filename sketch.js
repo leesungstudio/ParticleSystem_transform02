@@ -4,7 +4,7 @@ let gravity;
 let x = 0;
 
 function setup() {
-  createCanvas(1080, 1920);
+  createCanvas(720, 720);
   gravity = createVector(0, 0.05);
   
 }
