@@ -23,7 +23,7 @@ class Particle {
     update() {
         this.velocity.add(this.acceleration);
         this.position.add(this.velocity);
-        this.lifespan -= 4  ; // 알파값 줄어짐
+        this.lifespan -= 3  ; // 알파값 줄어짐
         this.colorspan += this.velocity.x;
         this.size += 2;
        // this.col  = 100  + 10*map(noise( this.size  ),0,1,0,40);
